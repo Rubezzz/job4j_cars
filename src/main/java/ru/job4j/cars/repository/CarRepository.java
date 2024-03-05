@@ -11,8 +11,12 @@ public class CarRepository {
 
     private final CrudRepository crudRepository;
 
-    private Optional<Car> get() {
-        return crudRepository.optional("From Car", Car.class, Map.of());
+    private Optional<Car> get(int id) {
+        return crudRepository.optional(
+                "From Car where id = :fId",
+                Car.class,
+                Map.of("fId", id)
+        );
     }
 
     private Car save(Car car) {

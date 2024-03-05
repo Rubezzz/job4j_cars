@@ -11,8 +11,12 @@ public class OwnerRepository {
 
     private final CrudRepository crudRepository;
 
-    private Optional<Owner> get() {
-        return crudRepository.optional("From Owner", Owner.class, Map.of());
+    private Optional<Owner> get(int id) {
+        return crudRepository.optional(
+                "From Owner where id = :fId",
+                Owner.class,
+                Map.of("fId", id)
+        );
     }
 
     private Owner save(Owner owner) {

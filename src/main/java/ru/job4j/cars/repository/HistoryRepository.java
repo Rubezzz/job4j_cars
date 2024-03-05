@@ -1,32 +1,32 @@
 package ru.job4j.cars.repository;
 
 import lombok.AllArgsConstructor;
-import ru.job4j.cars.model.Engine;
+import ru.job4j.cars.model.History;
 
 import java.util.Map;
 import java.util.Optional;
 
 @AllArgsConstructor
-public class EngineRepository {
+public class HistoryRepository {
 
     private final CrudRepository crudRepository;
 
-    private Optional<Engine> get(int id) {
+    private Optional<History> get(int id) {
         return crudRepository.optional(
-                "From Engine where id = :fId",
-                Engine.class,
+                "From History where id = :fId",
+                History.class,
                 Map.of("fId", id)
         );
     }
 
-    private Engine save(Engine engine) {
-        crudRepository.run(session -> session.persist(engine));
-        return engine;
+    private History save(History history) {
+        crudRepository.run(session -> session.persist(history));
+        return history;
     }
 
     public void delete(int id) {
         crudRepository.run(
-                "delete from Owner where id = :fId",
+                "delete from History where id = :fId",
                 Map.of("fId", id)
         );
     }
