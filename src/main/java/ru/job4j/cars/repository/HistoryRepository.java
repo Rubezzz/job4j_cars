@@ -1,7 +1,7 @@
 package ru.job4j.cars.repository;
 
 import lombok.AllArgsConstructor;
-import ru.job4j.cars.model.History;
+import ru.job4j.cars.model.HistoryOwner;
 
 import java.util.Map;
 import java.util.Optional;
@@ -11,15 +11,15 @@ public class HistoryRepository {
 
     private final CrudRepository crudRepository;
 
-    private Optional<History> get(int id) {
+    private Optional<HistoryOwner> get(int id) {
         return crudRepository.optional(
                 "From History where id = :fId",
-                History.class,
+                HistoryOwner.class,
                 Map.of("fId", id)
         );
     }
 
-    private History save(History history) {
+    private HistoryOwner save(HistoryOwner history) {
         crudRepository.run(session -> session.persist(history));
         return history;
     }

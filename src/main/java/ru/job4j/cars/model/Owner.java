@@ -16,7 +16,4 @@ public class Owner {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "history_id")
-    private History history;
 }
