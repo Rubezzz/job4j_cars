@@ -1,0 +1,1 @@
+ALTER TABLE car ADD COLUMN make_id int references make(id);

@@ -15,6 +15,9 @@ public class Car {
     private int id;
     private String name;
     @ManyToOne
+    @JoinColumn(name = "make_id")
+    private Make make;
+    @ManyToOne
     @JoinColumn(name = "engine_id")
     private Engine engine;
     @OneToMany(mappedBy = "car")

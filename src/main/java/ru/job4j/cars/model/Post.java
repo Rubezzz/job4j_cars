@@ -17,16 +17,16 @@ public class Post {
     private int id;
     private String description;
     private LocalDateTime creation;
-
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "post_id")
     private List<PriceHistory> priceHistories = new ArrayList<>();
-
     @ManyToOne
     @JoinColumn(name = "car_id")
     private Car car;
+    @ManyToOne
+    @JoinColumn(name = "file_id")
+    private File file;
 }
