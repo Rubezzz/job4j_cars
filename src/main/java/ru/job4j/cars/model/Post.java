@@ -26,7 +26,7 @@ public class Post {
     @ManyToOne
     @JoinColumn(name = "car_id")
     private Car car;
-    @ManyToOne
-    @JoinColumn(name = "file_id")
-    private File file;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "post_id")
+    private List<File> files;
 }

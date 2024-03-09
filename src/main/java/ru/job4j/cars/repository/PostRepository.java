@@ -37,15 +37,15 @@ public class PostRepository {
 
     public Collection<Post> findWidthPhoto() {
         return crudRepository.query(
-                "FROM Post WHERE file_id :fFileId",
+                "FROM Post p WHERE size(p.files) = :fFiles",
                 Post.class,
-                Map.of("fFileId", "IS NULL")
+                Map.of("fFiles", "0")
         );
     }
 
     public Collection<Post> findByMake(Make make) {
         return crudRepository.query(
-                "FROM Post p WHERE p.make_id = (FROM Make m WHERE m.id = :fMakeId)",
+                "FROM Post p WHERE p.car.make.id = :fMakeId",
                 Post.class,
                 Map.of("fMakeId", make.getId())
         );
