@@ -37,9 +37,9 @@ public class PostRepository {
 
     public Collection<Post> findWidthPhoto() {
         return crudRepository.query(
-                "FROM Post p WHERE size(p.files) = :fFiles",
+                "FROM Post p WHERE size(p.files) > 0",
                 Post.class,
-                Map.of("fFiles", "0")
+                Map.of()
         );
     }
 
