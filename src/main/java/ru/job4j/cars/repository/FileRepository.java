@@ -11,7 +11,7 @@ public class FileRepository {
 
     private final CrudRepository crudRepository;
 
-    private Optional<File> get(int id) {
+    public Optional<File> get(int id) {
         return crudRepository.optional(
                 "From File where id = :fId",
                 File.class,
@@ -19,7 +19,7 @@ public class FileRepository {
         );
     }
 
-    private File save(File file) {
+    public File save(File file) {
         crudRepository.run(session -> session.persist(file));
         return file;
     }

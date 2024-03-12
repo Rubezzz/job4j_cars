@@ -14,15 +14,22 @@ public class PostRepository {
 
     private final CrudRepository crudRepository;
 
-    private Post save(Post post) {
+    public Post save(Post post) {
         crudRepository.run(session -> session.persist(post));
         return post;
     }
 
-    private Optional<Post> get(int id) {
+    public Optional<Post> get(int id) {
         return crudRepository.optional(
                 "From Post where id = :fId",
                 Post.class,
+                Map.of("fId", id)
+        );
+    }
+
+    public void delete(int id) {
+        crudRepository.run(
+                "delete from Post where id = :fId",
                 Map.of("fId", id)
         );
     }

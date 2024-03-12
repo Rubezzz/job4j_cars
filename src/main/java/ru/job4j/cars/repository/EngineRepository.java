@@ -11,7 +11,7 @@ public class EngineRepository {
 
     private final CrudRepository crudRepository;
 
-    private Optional<Engine> get(int id) {
+    public Optional<Engine> get(int id) {
         return crudRepository.optional(
                 "From Engine where id = :fId",
                 Engine.class,
@@ -19,14 +19,14 @@ public class EngineRepository {
         );
     }
 
-    private Engine save(Engine engine) {
+    public Engine save(Engine engine) {
         crudRepository.run(session -> session.persist(engine));
         return engine;
     }
 
     public void delete(int id) {
         crudRepository.run(
-                "delete from Owner where id = :fId",
+                "delete from Engine where id = :fId",
                 Map.of("fId", id)
         );
     }

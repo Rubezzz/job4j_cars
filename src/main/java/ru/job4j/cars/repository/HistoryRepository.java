@@ -11,22 +11,22 @@ public class HistoryRepository {
 
     private final CrudRepository crudRepository;
 
-    private Optional<HistoryOwner> get(int id) {
+    public Optional<HistoryOwner> get(int id) {
         return crudRepository.optional(
-                "From History where id = :fId",
+                "From HistoryOwner where id = :fId",
                 HistoryOwner.class,
                 Map.of("fId", id)
         );
     }
 
-    private HistoryOwner save(HistoryOwner history) {
+    public HistoryOwner save(HistoryOwner history) {
         crudRepository.run(session -> session.persist(history));
         return history;
     }
 
     public void delete(int id) {
         crudRepository.run(
-                "delete from History where id = :fId",
+                "delete from HistoryOwner where id = :fId",
                 Map.of("fId", id)
         );
     }

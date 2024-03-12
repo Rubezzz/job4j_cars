@@ -11,7 +11,7 @@ public class OwnerRepository {
 
     private final CrudRepository crudRepository;
 
-    private Optional<Owner> get(int id) {
+    public Optional<Owner> get(int id) {
         return crudRepository.optional(
                 "From Owner where id = :fId",
                 Owner.class,
@@ -19,7 +19,7 @@ public class OwnerRepository {
         );
     }
 
-    private Owner save(Owner owner) {
+    public Owner save(Owner owner) {
         crudRepository.run(session -> session.persist(owner));
         return owner;
     }

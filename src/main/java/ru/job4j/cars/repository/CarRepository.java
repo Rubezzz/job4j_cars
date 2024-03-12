@@ -11,7 +11,7 @@ public class CarRepository {
 
     private final CrudRepository crudRepository;
 
-    private Optional<Car> get(int id) {
+    public Optional<Car> get(int id) {
         return crudRepository.optional(
                 "From Car where id = :fId",
                 Car.class,
@@ -19,7 +19,7 @@ public class CarRepository {
         );
     }
 
-    private Car save(Car car) {
+    public Car save(Car car) {
         crudRepository.run(session -> session.persist(car));
         return car;
     }
