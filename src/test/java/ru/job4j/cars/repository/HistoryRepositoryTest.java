@@ -25,6 +25,7 @@ class HistoryRepositoryTest {
     @AfterEach
     public void wipeTable() {
         crudRepository.run("DELETE FROM HistoryOwner", Map.of());
+        crudRepository.run("DELETE FROM Car", Map.of());
     }
 
     private HistoryOwner newHistory() {

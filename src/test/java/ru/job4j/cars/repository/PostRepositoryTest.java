@@ -26,6 +26,7 @@ class PostRepositoryTest {
     public void wipeTable() {
         crudRepository.run("DELETE FROM File", Map.of());
         crudRepository.run("DELETE FROM Post", Map.of());
+        crudRepository.run("DELETE FROM Car", Map.of());
     }
 
     private Post newPost() {
