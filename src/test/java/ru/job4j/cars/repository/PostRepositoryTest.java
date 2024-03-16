@@ -27,6 +27,8 @@ class PostRepositoryTest {
         crudRepository.run("DELETE FROM File", Map.of());
         crudRepository.run("DELETE FROM Post", Map.of());
         crudRepository.run("DELETE FROM Car", Map.of());
+        crudRepository.run("DELETE FROM Make", Map.of());
+        crudRepository.run("DELETE FROM Engine", Map.of());
     }
 
     private Post newPost() {

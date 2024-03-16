@@ -26,6 +26,7 @@ class OwnerRepositoryTest {
     @AfterEach
     public void wipeTable() {
         crudRepository.run("DELETE FROM Owner", Map.of());
+        crudRepository.run("DELETE FROM User", Map.of());
     }
 
     private Owner newOwner() {

@@ -26,6 +26,9 @@ class HistoryRepositoryTest {
     public void wipeTable() {
         crudRepository.run("DELETE FROM HistoryOwner", Map.of());
         crudRepository.run("DELETE FROM Car", Map.of());
+        crudRepository.run("DELETE FROM Make", Map.of());
+        crudRepository.run("DELETE FROM Engine", Map.of());
+        crudRepository.run("DELETE FROM Owner", Map.of());
     }
 
     private HistoryOwner newHistory() {

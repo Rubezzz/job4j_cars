@@ -30,6 +30,8 @@ class CarRepositoryTest {
     @AfterEach
     public void wipeTable() {
         crudRepository.run("DELETE FROM Car", Map.of());
+        crudRepository.run("DELETE FROM Make", Map.of());
+        crudRepository.run("DELETE FROM Engine", Map.of());
     }
 
     private Car newCar() {
